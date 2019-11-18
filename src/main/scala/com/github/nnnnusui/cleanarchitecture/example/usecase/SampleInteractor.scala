@@ -5,8 +5,9 @@ import com.github.nnnnusui.cleanarchitecture.example.entity.Sample
 
 object SampleInteractor {
   private val presenter = SamplePresenter
-  def input(): Unit ={
+  def input(inputData: SampleInputData): Unit ={
     val sample = new Sample
-    presenter.output()
+    val outputData = SampleOutputData()
+    presenter.output(outputData)
   }
 }
