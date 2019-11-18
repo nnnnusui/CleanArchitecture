@@ -1,11 +1,10 @@
 package com.github.nnnnusui.cleanarchitecture.example.usecase
 
-import com.github.nnnnusui.cleanarchitecture.example.adapter.SamplePresenter
 import com.github.nnnnusui.cleanarchitecture.example.entity.Sample
-import com.github.nnnnusui.cleanarchitecture.usecase.{InputBoundary, OutputBoundary}
+import com.github.nnnnusui.cleanarchitecture.usecase.{InputBoundary, UsesPresenter}
 
-object SampleInteractor extends InputBoundary[SampleInputData] {
-  private val presenter: OutputBoundary[SampleOutputData] = SamplePresenter
+trait SampleInteractor extends InputBoundary[SampleInputData]
+                          with UsesPresenter[SampleOutputData]{
   def input(inputData: SampleInputData): Unit ={
     val sample = new Sample
     val outputData = SampleOutputData()
